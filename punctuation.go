@@ -13,19 +13,17 @@ func AdjustPunctuationSpacings(input string) string {
 		char := rune(input[i])
 
 		if unicode.IsPunct(char) {
-			if i > 0 && unicode.IsSpace(rune(input[i-1])) {
+			if i > 0 && unicode.IsSpace(rune(input[i-1])) && (char != '\'' || (char == '\'' && i+1 < len(input) && rune(input[i+1]) != ' ')) {
 				newStr := builder.String()
 				newStr = newStr[:len(newStr)-1]
 				builder.Reset()
 				builder.WriteString(newStr)
 			}
 
-			for i < len(input) && unicode.IsPunct(rune(input[i])) {
-				builder.WriteRune(rune(input[i]))
-				i++
-			}
+			builder.WriteRune(char)
+			i++
 
-			if i < len(input) && !unicode.IsSpace(rune(input[i])) {
+			if (char == '\'' || char == ',') && i < len(input) && !unicode.IsSpace(rune(input[i])) && !unicode.IsPunct(rune(input[i])) {
 				builder.WriteRune(' ')
 			}
 		} else {
