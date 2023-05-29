@@ -1,1 +1,1 @@
-Simply add 42 (hex) and 11 (bin) and you will see the result is 69.
+يبتسم

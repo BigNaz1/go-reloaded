@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	if len(os.Args) < 3 {
+	if len(os.Args) != 3 {
 		fmt.Println("Usage: go run main.go <input_file> <output_file>")
 		return
 	}
@@ -22,8 +22,19 @@ func main() {
 	}
 
 	modifiedText := reloaded.Atoan(string(text))
+
 	modifiedText = reloaded.HexatoDec(modifiedText)
 	modifiedText = reloaded.BintoDec(modifiedText)
+	modifiedText = reloaded.Capitalize(modifiedText)
+	modifiedText = reloaded.ToUpper(modifiedText)
+	modifiedText = reloaded.TransformText(modifiedText)
+	modifiedText = reloaded.AdvancedPunctuation(modifiedText)
+	modifiedText = reloaded.RemoveExtraPunc(modifiedText)
+	modifiedText = reloaded.FormatPunctuation(modifiedText)
+	modifiedText = reloaded.Filterstring(modifiedText)
+
+
+	
 
 	err = os.WriteFile(outputFile, []byte(modifiedText), 0644)
 	if err != nil {

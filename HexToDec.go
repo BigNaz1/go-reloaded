@@ -3,6 +3,7 @@ package reloaded
 import (
 	"strconv"
 	"strings"
+    "fmt"
 )
 
 func HexatoDec(HextoDec string) string {
@@ -14,10 +15,12 @@ func HexatoDec(HextoDec string) string {
             words[i] = ""
 
             var err error
-            output, err = strconv.ParseInt(number, 16, 64)
-            if err != nil {
-                return ""
-            }
+			output, err = strconv.ParseInt(number, 16, 64)
+			if err != nil {
+				// Print an error message and return an empty string in case of an error
+				fmt.Println("There is an error with your input kindly check the user manual before running")
+				return ""
+			}
             words[i-1] = strconv.FormatInt(output, 10)
         }
     }
