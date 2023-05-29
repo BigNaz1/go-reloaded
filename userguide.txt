@@ -1,0 +1,33 @@
+This is the exact way to use this code if you input any weird things and symbols the code will not work. 
+The code only accepts correct english letters and symbols.
+if you input two cases next to eachother without a space the code would simply do nothing
+There is a maximum of 3 punctuation marks next to each other
+
+
+
+    Convert hexadecimal to decimal: Replace a word followed by (hex) with its decimal equivalent.
+    Example: "1E (hex) files were added" becomes "30 files were added".
+
+    Convert binary to decimal: Replace a word followed by (bin) with its decimal equivalent.
+    Example: "10 (bin) years" becomes "2 years".
+
+    Uppercase conversion: Replace a word followed by (up) with its uppercase version.
+    Example: "Ready, set, go (up) !" becomes "Ready, set, GO !".
+
+    Lowercase conversion: Replace a word followed by (low) with its lowercase version.
+    Example: "I should stop SHOUTING (low)" becomes "I should stop shouting".
+
+    Capitalization: Replace a word followed by (cap) with its capitalized version.
+    Example: "Welcome to the Brooklyn bridge (cap)" becomes "Welcome to the Brooklyn Bridge".
+
+    Multiple word case conversion: For (low, <number>), (up, <number>), and (cap, <number>), convert the specified number of preceding words to lowercase, uppercase, or capitalized, respectively.
+    Example: "This is so exciting (up, 2)" becomes "This is SO EXCITING".
+
+    Punctuation spacing: Place punctuation marks (., ,, !, ?, :, ;) directly after the preceding word, and leave a space after the punctuation. Exceptions are made for multiple consecutive punctuation marks like ... or !?..
+    Example: "I was sitting over there ,and then BAMM !!" becomes "I was sitting over there, and then BAMM!!".
+
+    Apostrophe placement: Place apostrophes directly next to the word(s) they enclose, without any spaces.
+    Example: "I am exactly how they describe me: ' awesome '" becomes "I am exactly how they describe me: 'awesome'".
+
+    A/an usage: Replace a with an if the following word starts with a vowel (a, e, i, o, u) or an "h".
+    Example: "There it was. A amazing rock!" becomes "There it was. An amazing rock!".

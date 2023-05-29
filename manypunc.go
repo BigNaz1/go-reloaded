@@ -1,7 +1,6 @@
 package reloaded
 
 import (
-
 	"strconv"
 	"strings"
 	"unicode"

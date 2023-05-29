@@ -11,7 +11,7 @@ func MarkerWithNumber(input string) string {
 		if strings.HasPrefix(words[i], "(low,") || strings.HasPrefix(words[i], "(up,") || strings.HasPrefix(words[i], "(cap,") {
 			parts := strings.Split(words[i], ",")
 			if len(parts) == 2 {
-				number, err := strconv.Atoi(words[i+1][:len(words[i+1])-1]) // remove ')' and convert to int
+				number, err := strconv.Atoi(words[i+1][:len(words[i+1])-1])
 				words[i+1] = ""
 				if err == nil && i-number >= 0 {
 					if strings.HasPrefix(words[i], "(low,") {
@@ -28,12 +28,10 @@ func MarkerWithNumber(input string) string {
 						}
 					}
 					words = append(words[:i], words[i+1:]...)
-					i -= number // step back since we removed an element
+					i -= number
 				}
 			}
 		}
 	}
 	return strings.Join(words, " ")
 }
-
-//let it return errors if cap at beginning or number with cap too big

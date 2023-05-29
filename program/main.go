@@ -30,11 +30,8 @@ func main() {
 	modifiedText = reloaded.TransformText(modifiedText)
 	modifiedText = reloaded.AdvancedPunctuation(modifiedText)
 	modifiedText = reloaded.RemoveExtraPunc(modifiedText)
-	modifiedText = reloaded.FormatPunctuation(modifiedText)
+	modifiedText = reloaded.AdjustPunctuationSpacings(modifiedText)
 	modifiedText = reloaded.Filterstring(modifiedText)
-
-
-	
 
 	err = os.WriteFile(outputFile, []byte(modifiedText), 0644)
 	if err != nil {
@@ -42,5 +39,5 @@ func main() {
 		return
 	}
 
-	fmt.Println("Text processing complete. " + string(modifiedText))
+	fmt.Println("Text processing complete. Check your result file or view in terminal: " + string(modifiedText))
 }

@@ -1,17 +1,38 @@
 package reloaded
 
 import (
-    "regexp"
+	"strings"
+	"unicode"
 )
 
-func FormatPunctuation(str string) string {
-    // Remove unwanted spaces before punctuations
-    re := regexp.MustCompile(`\s*([.,:;])\s*`)
-    str = re.ReplaceAllString(str, "$1 ")
+func AdjustPunctuationSpacings(input string) string {
+	var builder strings.Builder
+	i := 0
 
-    // Handle exclamations and questions
-    reExclQuest := regexp.MustCompile(`\s*([!?])\s*`)
-    str = reExclQuest.ReplaceAllString(str, "$1")
+	for i < len(input) {
+		char := rune(input[i])
 
-    return str
+		if unicode.IsPunct(char) {
+			if i > 0 && unicode.IsSpace(rune(input[i-1])) {
+				newStr := builder.String()
+				newStr = newStr[:len(newStr)-1]
+				builder.Reset()
+				builder.WriteString(newStr)
+			}
+
+			for i < len(input) && unicode.IsPunct(rune(input[i])) {
+				builder.WriteRune(rune(input[i]))
+				i++
+			}
+
+			if i < len(input) && !unicode.IsSpace(rune(input[i])) {
+				builder.WriteRune(' ')
+			}
+		} else {
+			builder.WriteRune(char)
+			i++
+		}
+	}
+
+	return builder.String()
 }

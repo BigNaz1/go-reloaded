@@ -1,9 +1,9 @@
 package reloaded
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
-    "fmt"
 )
 
 func BintoDec(Binstring string) string {
@@ -17,8 +17,7 @@ func BintoDec(Binstring string) string {
 			var err error
 			output, err = strconv.ParseInt(number, 2, 64)
 			if err != nil {
-				// Print an error message and return an empty string in case of an error
-				fmt.Println("There is an error with your input kindly check the user manual before running")
+				fmt.Println("There is an error with your input kindly check the user guide before running")
 				return ""
 			}
 			words[i-1] = strconv.FormatInt(output, 10)
