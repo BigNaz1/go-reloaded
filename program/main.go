@@ -27,6 +27,7 @@ func main() {
 	modifiedText = reloaded.BintoDec(modifiedText)
 	modifiedText = reloaded.Capitalize(modifiedText)
 	modifiedText = reloaded.ToUpper(modifiedText)
+	modifiedText = reloaded.ToLower(modifiedText)
 	modifiedText = reloaded.TransformText(modifiedText)
 	modifiedText = reloaded.AdjustPunctuationSpacings(modifiedText)
 	modifiedText = reloaded.RemoveExtraPunc(modifiedText)
